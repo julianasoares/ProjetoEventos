@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form_orcamento.as_p }}
+        {{ form_orcamento_item.management_form }}
+        {% for form in form_orcamento_item %}
+            <div class="link-formset">{{ form.as_table }}</div>
+        {% endfor %}
+        <input type="submit" class="btn btn-primary" value="Salvar">
+    </form>
+
+{% endblock %}
+
+
+
